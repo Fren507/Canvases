@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas App</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/main.css" />
+  </head>
+  <body class="dark">
+    <canvas id="canvas" width="490" height="490" class="menu"> </canvas>
+    <nav class="menu">
+      <div class="menu-left">
+        <!-- <h1><a href="https://github.com/Fren507">Meine Website</a></h1> -->
+        <button id="testButton">Testnachricht</button>
+        <button id="particleToggle">Partikel schalten</button>
+      </div>
+      <div class="alert hide menu" id="message"></div>
+      <div class="menu-right">
+        <button id="color-scheme-toggle">Toggle Color Scheme</button>
+      </div>
+    </nav>
+    <script type="module" src="src/index.ts"></script>
+    <script type="module" src="src/canvas.ts"></script>
+    <!-- Im using Vite -->
+  </body>
+</html>

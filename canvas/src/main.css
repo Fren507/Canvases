@@ -1,0 +1,12 @@
+#canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 6px;
+  cursor: url(/assets/images/cursors/precision.png) 14 14, auto;
+}
+
+#canvas.hide {
+  display: none;
+}

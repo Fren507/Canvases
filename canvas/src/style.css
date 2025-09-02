@@ -1,0 +1,184 @@
+:root,
+.light {
+  --text-color: oklch(12.9% 0.042 264.695);
+  --background-color: oklch(96.8% 0.007 247.896); /* slate-100 */
+  --background-color-transparent: oklch(
+    96.826% 0.00696 248.26 / 0.15
+  ); /* slate-100/15 */
+  --menu-text: oklch(20.8% 0.042 265.755);
+  --menu-background: oklch(96.8% 0.007 247.896);
+}
+
+.dark {
+  --text-color: oklch(98.4% 0.003 247.858);
+  --background-color: oklch(20.8% 0.042 265.755);
+  --background-color-transparent: oklch(
+    20.8% 0.042 265.755 / 0.15
+  ); /* slate-100/15 */
+  --menu-text: oklch(92.9% 0.013 255.508);
+  --menu-background: oklch(20.8% 0.042 265.755);
+}
+
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+html {
+  cursor: url(/assets/images/cursors/black.png) 4 2, auto;
+}
+
+body {
+  background-color: var(--background-color);
+  padding-top: 4rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.menu {
+  background-color: var(--background-color) / 0.1;
+  color: var(--menu-text);
+
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+
+  border: 2px solid transparent;
+  box-shadow: inset 3px 3px 6px rgba(24, 37, 67, 0.2),
+    inset -3px -3px 6px rgba(24, 37, 67, 0.2), 3px 3px 6px rgba(24, 37, 67, 0.2),
+    -3px -3px 6px rgba(24, 37, 67, 0.2);
+}
+
+.dark .menu {
+  box-shadow: inset 3px 3px 6px rgba(24, 37, 67, 0.5),
+    inset -3px -3px 6px rgba(24, 37, 67, 0.5), 3px 3px 6px rgba(24, 37, 67, 0.5),
+    -3px -3px 6px rgba(24, 37, 67, 0.5);
+}
+
+button {
+  background: linear-gradient(
+    145deg,
+    var(--background-color),
+    oklch(100%, 0, 0)
+  );
+  color: var(--menu-text);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+
+  padding: 0.25rem;
+
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  cursor: url(/assets/images/cursors/white.png) 4 2, auto;
+}
+
+.dark button {
+  box-shadow: 2px 2px 5px rgba(24, 37, 67, 0.5), -2px -2px 6px#182543;
+}
+
+button:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dark button:hover {
+  box-shadow: 4px 4px 10px rgba(24, 37, 67, 0.5), -4px -4px 10px#182543;
+}
+
+button:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+}
+
+.dark button:active {
+  box-shadow: 1px 1px 3px rgba(24, 37, 67, 0.5) inset,
+    1px 1px 3px rgba(24, 37, 67, 0.5) inset;
+}
+
+nav {
+  height: 3rem;
+
+  width: calc(100dvw - 40px);
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav.menu {
+  border-radius: 3rem;
+}
+
+.menu-left,
+.menu-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-width: 3rem;
+  transition: width 0.3s ease;
+  padding: 0 0.5rem;
+}
+
+.menu-left > * {
+  margin: 0 0.5rem 0 0;
+}
+.menu-right > * {
+  margin: 0 0 0 0.5rem;
+}
+
+nav,
+.menu-left,
+.menu-right {
+  border-radius: 3rem;
+}
+
+#message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30px) scale(0.1);
+  z-index: 1000;
+
+  width: clamp(300px, auto, 80vw);
+
+  padding: 12px 24px;
+  border-radius: 3rem;
+  text-align: center;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#message.alert {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(30px) scale(1.1);
+}
+
+#message.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-30px) scale(0.1);
+}
